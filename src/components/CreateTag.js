@@ -2,7 +2,9 @@ import React from "react";
 import HeroSection from "./HeroSection";
 
 
-export default function CreateTag(){
+export default function createTag(){
+
+    console.log("button clicked")
     
     return(
         <form>
