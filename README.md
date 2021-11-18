@@ -27,3 +27,36 @@ To see your app live on localhost, run the following command:
 ```bash
 npm start
 ```
+
+If you are getting the following error while running the app,
+
+```bash
+sh: react-scripts: command not found
+```
+
+Then run the following commands:
+
+```bash
+rm -rf node_modules
+rm -rf package-lock.json
+```
+
+Install react-scripts using the following command:
+
+```bash
+npm install react-scripts
+```
+
+Install the dependencies using the following command:
+
+```bash
+npm install
+```
+
+Start the local server by running the following command:
+
+```bash
+npm run start
+```
+
+Note: If you are a Linux user then don't forget to add the `sudo` command before `npm`.
