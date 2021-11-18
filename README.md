@@ -22,10 +22,22 @@ v16.13.0
 
 ## Running the React App
 
+Install react-scripts using the following command:
+
+```bash
+npm install react-scripts
+```
+
+Install the dependencies using the following command:
+
+```bash
+npm install
+```
+
 To see your app live on localhost, run the following command:
 
 ```bash
-npm start
+npm run start
 ```
 
 If you are getting the following error while running the app,
