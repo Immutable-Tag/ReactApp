@@ -1,32 +1,50 @@
-import React from "react";
+import React, { useState } from 'react';
 import "./Form.css";
 
-export default function getTag() {
+function GetTag() {
+  const [values, setValues] = useState({
+    repoURL: "",
+    tagID: ""
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleRepoURLInputChange = (event) => {
+    setValues({...values, repoURL:event.target.value})
+  }
+
+  const handleTagIDInputChange = (event) => {
+    setValues({...values, tagID:event.target.value})
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSubmitted(true);
+  }
+
     return (
       <div class="form-container">
-        <form class="register-form">
-          {/* Uncomment the next line to show the success message */}
-          {/* <div class="success-message">Success! Thank you for registering</div> */}
+        <form class="tag-form" onSubmit={handleSubmit}>
           <input
+          onChange={handleRepoURLInputChange}
+            value={values.repoURL}
             id="repoURL"
             class="form-field"
             type="text"
-            placeholder="Respository URL"
+            placeholder="Repository URL"
             name="repoURL"
           />
-          {/* Uncomment the next line to show the error message */}
-          {/* <span id="first-name-error">Please enter a first name</span> */}
+          {submitted && !values.repoURL ? <span id="repoURL-error">Please enter a repository URL</span> : null}
           <input
+            onChange={handleTagIDInputChange}
+            value={values.tagID}
             id="tagID"
             class="form-field"
             type="text"
             placeholder="Tag name"
             name="tagID"
           />
-          {/* Uncomment the next line to show the error message */}
-          {/* <span id="last-name-error">Please enter a last name</span> */}
-          {/* Uncomment the next line to show the error message */}
-          {/* <span id="email-error">Please enter an email address</span> */}
+          {submitted && !values.tagID ? <span id="last-name-error">Please enter a tag name</span> : null}
           <button class="form-field" type="submit">
             Retrieve a Tag
           </button>
@@ -34,3 +52,5 @@ export default function getTag() {
       </div>
     );
   }
+
+  export default GetTag;

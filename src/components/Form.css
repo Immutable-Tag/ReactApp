@@ -14,7 +14,7 @@ body {
     padding: 10px;
   }
   
-  .register-form {
+  .tag-form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
