@@ -41,7 +41,7 @@ function HeroSection() {
           variant="light"
           size="lg"
           onClick={() => {
-          history.push("/createTag")
+          history.push("/getTag")
         }}>
           Retrieve a Tag
           </Button>

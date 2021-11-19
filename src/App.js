@@ -8,7 +8,7 @@ import About from './components/pages/About';
 import SignUp from './components/pages/SignUp';
 import CreateTag from './components/CreateTag';
 import history from './components/history';
-import FormGetTag from './components/FormGetTag';
+import GetTag from './components/GetTag';
 
 function App() {
 
@@ -28,7 +28,7 @@ function App() {
           <Route path='/about' component={About} />
           <Route path='/sign-up' component={SignUp} />
           <Route path='/createTag' exact component={CreateTag} />
-          <Route path='/getTag' exact component={FormGetTag} />
+          <Route path='/getTag' exact component={GetTag} />
         </Switch>
       </Router>
     </>
