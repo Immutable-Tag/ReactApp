@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Form.css";
 import Axios from 'axios'
 
 function CreateTag(){
-
-    console.log("button clicked")
-
     const url = ""
 
     const [values, setValues] = useState({
@@ -25,8 +22,10 @@ function CreateTag(){
       function handleSubmit(e) {
         e.preventDefault();
         setSubmitted(true);
-        Axios.post(url+values.tagID,{
-          repoURL: values.repoURL
+        Axios.post(url,{
+          repoURL: values.repoURL,
+          tagID: values.tagID,
+          commitID: values.commitID
         })
         .then(res=>{
           console.log(res.data)
