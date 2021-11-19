@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import "./Form.css";
+import Axios from 'axios'
 
 function GetTag() {
+  const url = ""
+
   const [values, setValues] = useState({
     repoURL: "",
     tagID: ""
@@ -9,24 +12,28 @@ function GetTag() {
 
   const [submitted, setSubmitted] = useState(false);
 
-  const handleRepoURLInputChange = (event) => {
-    setValues({...values, repoURL:event.target.value})
+  function handleInputChange(e) {
+    const newValue = {...values}
+    newValue[e.target.id] = e.target.value
+    setValues(newValue)
   }
 
-  const handleTagIDInputChange = (event) => {
-    setValues({...values, tagID:event.target.value})
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  function handleSubmit(e) {
+    e.preventDefault();
     setSubmitted(true);
+    Axios.post(url+values.tagID,{
+      repoURL: values.repoURL
+    })
+    .then(res=>{
+      console.log(res.data)
+    })
   }
 
     return (
       <div class="form-container">
-        <form class="tag-form" onSubmit={handleSubmit}>
+        <form class="tag-form" onSubmit={(e) => handleSubmit(e)}>
           <input
-          onChange={handleRepoURLInputChange}
+          onChange={(e) => handleInputChange(e)}
             value={values.repoURL}
             id="repoURL"
             class="form-field"
@@ -36,7 +43,7 @@ function GetTag() {
           />
           {submitted && !values.repoURL ? <span id="repoURL-error">Please enter a repository URL</span> : null}
           <input
-            onChange={handleTagIDInputChange}
+            onChange={(e) => handleInputChange(e)}
             value={values.tagID}
             id="tagID"
             class="form-field"

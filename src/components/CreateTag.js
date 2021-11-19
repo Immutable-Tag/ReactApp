@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function createTag(){
+export default function CreateTag(){
 
     console.log("button clicked")
     
