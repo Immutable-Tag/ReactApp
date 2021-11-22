@@ -1,15 +1,18 @@
 body {
-    background: url('/images/img-home.jpeg') center center/cover no-repeat;
+    background: url('/images/img-home.png') center center/cover no-repeat;
+    /* background-color: #20282f; */
     min-height: 100vh;
   }
   
   .form-container {
+    margin-top: 8em;
     min-height: 20vh;
     justify-content: center;
     align-items: center;
     width: 360px;
     background-color: white;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     padding: 10px;
   }
@@ -53,7 +56,7 @@ body {
   }
   
   button {
-    background: black;
+    background: #20282f;
     color: white;
     cursor: pointer;
   }

@@ -6,7 +6,6 @@ import './HeroSection.css';
 import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 function HeroSection() {
   let history = useHistory();
 
@@ -16,7 +15,7 @@ function HeroSection() {
       
       <h1>Tag Immutability </h1>
       <p>Guaranteeing immutability of version control system tags using blockchain</p>
-      <br />
+      {/* <br />
       <br />
       <div>
         <Button 
@@ -25,7 +24,7 @@ function HeroSection() {
           >
             Learn More...
             </Button>
-      </div>
+      </div> */}
       <br />
       <div className='hero-btns'>
         <Button 
