@@ -1,8 +1,30 @@
-body{
-    /* margin-top:20px; */
+/* body {
+  background-image: none;
+  background-color: #20282f !important;
+} */
+
+.team-container {
+  background-image: none !important;
+  background-size: 0 !important;
+  background-color: #20282f;
+  padding: 64px;
 }
 
-.team-list img {
+.h1-white {
+  margin-top: auto;
+  line-height: 1.125;
+  text-align: center;
+  color: #fff;
+}
+
+.team {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+
+/* .team-list img {
   width: 50%;
 }
 
@@ -116,4 +138,4 @@ body{
 .section-title .title {
     letter-spacing: 0.5px;
     font-size: 30px;
-}
+} */
