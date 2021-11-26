@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Form.css";
 import Axios from 'axios'
+import Modal from "./Model";
 
 function CreateTag(){
     const url = ""
@@ -29,7 +30,19 @@ function CreateTag(){
         })
         .then(res=>{
           console.log(res.data)
+          setValues(res.data)
         })
+
+        //.then(res => this.setState({items: res.data}))
+        //.catch(err => { 
+        //this.setState({errorMessage: err.message});
+      //}
+
+      if (res.status==200){
+         Modal();
+      }
+      else if (res.status==404){
+         <h1>Error!...Tag Not Found</h1>
       }
     
     return(
