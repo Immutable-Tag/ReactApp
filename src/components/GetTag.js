@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import "./Form.css";
 import Axios from 'axios'
+import { middlewareURL } from '../Config';
 
 function GetTag() {
-  const url = ""
-
   const [values, setValues] = useState({
     repoURL: "",
     tagID: ""
@@ -21,11 +20,15 @@ function GetTag() {
   function handleSubmit(e) {
     e.preventDefault();
     setSubmitted(true);
-    Axios.post(url+values.tagID,{
-      repoURL: values.repoURL
+    // Axios.post(middlewareURL+values.tagID,{
+    Axios.post(`${middlewareURL}/v1/tags/${values.tagID}`,{
+      repo_url: values.repoURL
     })
     .then(res=>{
       console.log(res.data)
+    })
+    .catch(err => {
+      console.log(err.message);
     })
   }
 

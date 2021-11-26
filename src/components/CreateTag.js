@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Form.css";
 import Axios from 'axios'
+import { middlewareURL } from '../Config';
 
 function CreateTag(){
     const url = ""
@@ -22,13 +23,16 @@ function CreateTag(){
       function handleSubmit(e) {
         e.preventDefault();
         setSubmitted(true);
-        Axios.post(url,{
-          repoURL: values.repoURL,
-          tagID: values.tagID,
-          commitID: values.commitID
+        Axios.post(`${middlewareURL}/v1/tags`,{
+          repo_url: values.repoURL,
+          tag_id: values.tagID,
+          commit_id: values.commitID
         })
         .then(res=>{
           console.log(res.data)
+        })
+        .catch(err=>{
+          console.log(err.message)
         })
       }
     
