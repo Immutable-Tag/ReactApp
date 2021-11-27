@@ -30,6 +30,13 @@ body {
     padding: 15px;
     color: white;
   }
+
+  .failure-message {
+    font-family: "Roboto", sans-serif;
+    background-color: red;
+    padding: 15px;
+    color: white;
+  }
   
   .form-field {
     margin: 20px 0 20px 0;
@@ -44,6 +51,14 @@ body {
     font-size: 14px;
     color: red;
     margin-bottom: 15px;
+  }
+
+  .modal-body {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    color: black;
+    padding: 0.5rem !important;
+    /* margin-bottom: 2px; */
   }
   
   input {
