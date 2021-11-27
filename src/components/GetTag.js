@@ -114,7 +114,7 @@ function GetTag() {
             }
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="primary" onClick={handleClose}>Close</Button>
+            <Button variant="dark" onClick={handleClose}>Close</Button>
             {/* <Button variant="primary" onClick={handleClose}>Submit</Button> */}
           </Modal.Footer>
         </Modal>
