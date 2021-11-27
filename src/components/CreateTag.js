@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "./Form.css";
 import Axios from 'axios'
+import { middlewareURL } from '../Config';
 import Modal from "./Model";
 
 function CreateTag(){
-    const url = ""
-
     const [values, setValues] = useState({
         repoURL: "",
         tagID: "",
@@ -23,27 +22,32 @@ function CreateTag(){
       function handleSubmit(e) {
         e.preventDefault();
         setSubmitted(true);
-        Axios.post(url,{
-          repoURL: values.repoURL,
-          tagID: values.tagID,
-          commitID: values.commitID
+        Axios.post(`${middlewareURL}/v1/tags`,{
+          repo_url: values.repoURL,
+          tag_id: values.tagID,
+          commit_id: values.commitID
         })
         .then(res=>{
           console.log(res.data)
           setValues(res.data)
+          Modal();
         })
+        .catch(err=>{
+          console.log(err.message)
+        }) 
+      }
 
         //.then(res => this.setState({items: res.data}))
         //.catch(err => { 
         //this.setState({errorMessage: err.message});
       //}
 
-      if (res.status==200){
-         Modal();
-      }
-      else if (res.status==404){
-         <h1>Error!...Tag Not Found</h1>
-      }
+      // if (res.status==200){
+      //    Modal();
+      // }
+      // else if (res.status==404){
+      //    <h1>Error!...Tag Not Found</h1>
+      // }
     
     return(
         <div class="form-container">
