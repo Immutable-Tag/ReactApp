@@ -50,7 +50,7 @@ function Navbar() {
                 Service
               </Link>
             </li> */}
-            <li className='nav-item'>
+            {/* <li className='nav-item'>
               <Link
                 to='/about'
                 className='nav-links'
@@ -67,6 +67,16 @@ function Navbar() {
               >
                 Team
               </Link>
+            </li> */}
+            <li className='nav-item'>
+              <a 
+                className='nav-links'
+                href="https://github.com/Immutable-Tag"
+                target="_blank"
+                rel='noopener noreferrer'
+              >
+                Get the code
+              </a>
             </li>
           </ul>
         </div>
