@@ -18,7 +18,8 @@ function GetTag() {
       title: "",
       repoURL: "",
       commitID: "",
-      failureMessage: ""
+      failureMessage: "",
+      headerClassName: ""
     })
     const handleClose = () => setShow(false);
 
@@ -43,6 +44,7 @@ function GetTag() {
         repoURL: res.data.repo_url,
         tagID: res.data.tag_id,
         commitID: res.data.commit_id,
+        headerClassName: "success-modal-header"
       })
       setSubmitted(false);
       setValues({
@@ -59,7 +61,8 @@ function GetTag() {
       setShow(true);
       setModalContent({
         title: "Failed to Retrieve Tag!",
-        failureMessage: message
+        failureMessage: message,
+        headerClassName: "failure-modal-header"
       });
       setSubmitted(false);
       setValues({
@@ -97,7 +100,7 @@ function GetTag() {
           </button>
         </form>
         <Modal show={show} onHide={handleClose}>
-          <Modal.Header>
+          <Modal.Header class={modalContent.headerClassName}>
             <Modal.Title>{modalContent.title}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -111,7 +114,7 @@ function GetTag() {
             }
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>Close</Button>
+            <Button variant="primary" onClick={handleClose}>Close</Button>
             {/* <Button variant="primary" onClick={handleClose}>Submit</Button> */}
           </Modal.Footer>
         </Modal>
