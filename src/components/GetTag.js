@@ -14,7 +14,7 @@ function GetTag() {
   const [submitted, setSubmitted] = useState(false);
 
   const [show, setShow] = useState(false);
-    const [modalContent, setModalContent] = useState({
+  const [modalContent, setModalContent] = useState({
       title: "",
       repoURL: "",
       commitID: "",

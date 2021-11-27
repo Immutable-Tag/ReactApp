@@ -30,6 +30,13 @@ body {
     padding: 15px;
     color: white;
   }
+
+  .failure-message {
+    font-family: "Roboto", sans-serif;
+    background-color: red;
+    padding: 15px;
+    color: white;
+  }
   
   .form-field {
     margin: 20px 0 20px 0;
