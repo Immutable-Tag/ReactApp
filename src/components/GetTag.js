@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import "./Form.css";
 import Axios from 'axios'
 import { middlewareURL } from '../Config';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Modal, Button } from 'react-bootstrap'
 
 function GetTag() {
   const [values, setValues] = useState({
@@ -10,6 +12,15 @@ function GetTag() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+
+  const [show, setShow] = useState(false);
+    const [modalContent, setModalContent] = useState({
+      title: "",
+      repoURL: "",
+      commitID: "",
+      failureMessage: ""
+    })
+    const handleClose = () => setShow(false);
 
   function handleInputChange(e) {
     const newValue = {...values}
@@ -26,9 +37,35 @@ function GetTag() {
     })
     .then(res=>{
       console.log(res.data)
+      setShow(true);
+      setModalContent({
+        title: "Successfully Retrieved Tag!",
+        repoURL: res.data.repo_url,
+        tagID: res.data.tag_id,
+        commitID: res.data.commit_id,
+      })
+      setSubmitted(false);
+      setValues({
+        repoURL: "",
+        tagID: ""
+      });
     })
     .catch(err => {
-      console.log(err.message);
+      let status = err.response.status;
+      let message = err.message;
+      if (status === 404){
+        message = "Tag does not exist!"
+      }
+      setShow(true);
+      setModalContent({
+        title: "Failed to Retrieve Tag!",
+        failureMessage: message
+      });
+      setSubmitted(false);
+      setValues({
+        repoURL: "",
+        tagID: ""
+      });
     })
   }
 
@@ -59,6 +96,25 @@ function GetTag() {
             Retrieve a Tag
           </button>
         </form>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header>
+            <Modal.Title>{modalContent.title}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {modalContent.failureMessage ? 
+              <p class="modal-body">{modalContent.failureMessage}</p> : 
+              <div>
+                <p class="modal-body"><b>Repository URL:</b> {modalContent.repoURL}</p>
+                <p class="modal-body"><b>Tag ID:</b> {modalContent.tagID}</p>
+                <p class="modal-body"><b>Commit Hash:</b> {modalContent.commitID}</p>
+              </div>
+            }
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>Close</Button>
+            {/* <Button variant="primary" onClick={handleClose}>Submit</Button> */}
+          </Modal.Footer>
+        </Modal>
       </div>
     );
   }

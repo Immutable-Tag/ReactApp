@@ -45,6 +45,14 @@ body {
     color: red;
     margin-bottom: 15px;
   }
+
+  .modal-body {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    color: black;
+    padding: 0.5rem !important;
+    /* margin-bottom: 2px; */
+  }
   
   input {
     background: #f2f2f2;
