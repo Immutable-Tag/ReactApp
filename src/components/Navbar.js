@@ -71,6 +71,16 @@ function Navbar() {
             <li className='nav-item'>
               <a 
                 className='nav-links'
+                href="https://github.com/Immutable-Tag/docs"
+                target="_blank"
+                rel='noopener noreferrer'
+              >
+                Docs
+              </a>
+            </li>
+            <li className='nav-item'>
+              <a 
+                className='nav-links'
                 href="https://github.com/Immutable-Tag"
                 target="_blank"
                 rel='noopener noreferrer'
