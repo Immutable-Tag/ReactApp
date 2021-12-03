@@ -7,7 +7,8 @@ function CreateTag(){
     const [values, setValues] = useState({
         repoURL: "",
         tagID: "",
-        commitID: ""
+        commitID: "",
+        githubToken: ""
       });
 
     const [submitted, setSubmitted] = useState(false);
@@ -30,7 +31,8 @@ function CreateTag(){
         Axios.post(`${middlewareURL}/v1/tags`,{
           repo_url: values.repoURL,
           tag_id: values.tagID,
-          commit_id: values.commitID
+          commit_id: values.commitID,
+          github_token: values.githubToken
         })
         .then(res=>{
           console.log(res.data);
@@ -44,7 +46,8 @@ function CreateTag(){
           setValues({
             repoURL: "",
             tagID: "",
-            commitID: ""
+            commitID: "",
+            githubToken: ""
           });
           setShowToast(true);
         })
@@ -99,10 +102,19 @@ function CreateTag(){
               id="commitID"
               class="form-field"
               type="text"
-              placeholder="Commit Id"
+              placeholder="Commit ID"
               name="commitID"
             />
             {submitted && !values.commitID ? <span id="last-name-error">Please enter a Commit Id</span> : null}
+            <input
+              onChange={(e) => handleInputChange(e)}
+              value={values.githubToken}
+              id="githubToken"
+              class="form-field"
+              type="text"
+              placeholder="GitHub Token (optional)"
+              name="githubToken"
+            />
             <button class="form-field" type="submit">
               Create a Tag
             </button>
