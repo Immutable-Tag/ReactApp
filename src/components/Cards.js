@@ -27,7 +27,7 @@ function Cards() {
             <div className='cards__container'>
                 <div className='cards__wrapper'>
                     <img class="center" src='/images/shield2.gif' type="images/gif" alt="" />
-                    <p>Our solution uses Ethereum Smart Contracts to store tags on the blockchain and guarantee their immutability. This provides assurance to users that their products and automation systems will continue functioning with the same level of reliability.</p>
+                    <p>Our solution uses the tamper-proof and tamper-evident nature of blockchain to guarantee tag immutability. This provides assurance to users that their products and automation systems will continue functioning with the same level of reliability.</p>
                 </div>
             </div>
         </div>

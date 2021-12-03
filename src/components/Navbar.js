@@ -85,7 +85,7 @@ function Navbar() {
                 target="_blank"
                 rel='noopener noreferrer'
               >
-                Get the code
+                Code
               </a>
             </li>
           </ul>
